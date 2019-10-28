@@ -66,7 +66,8 @@ complex complex::operator - (const complex& complex2){
     return res;
 }
 
-const complex& complex::operator = (const complex& complex1){
+const complex& complex::operator = (const complex& complex1)
+{
     this->v1 = complex1.v1;
     this->v2 = complex1.v2;
     return *this;
