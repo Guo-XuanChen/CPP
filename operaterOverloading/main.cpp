@@ -16,7 +16,8 @@ class complex
     complex():v1(0),v2(0){};
     complex(int v1, int v2):v1(v1),v2(v2){};
     complex operator - (const complex&);
-    complex operator + (const complex&);     
+    complex operator + (const complex&);    
+    const complex& operator = (const complex &);        
     friend complex operator * (const complex&, const complex&);
     friend complex operator / (const complex&, const complex&);
     friend complex operator ^ (const complex&, const complex&);
@@ -33,11 +34,13 @@ int main(int argc, char **argv)
     complex complex5 = complex1 * complex2;
     complex complex6 = complex2 / complex1; 
     complex complex7 = complex1 ^ complex2; 
+    complex complex8 = complex7;
     cout << "Operator + : "  << complex3 << endl;
     cout << "Operator - : "  << complex4 << endl;
     cout << "Operator * : " << complex5 << endl;
     cout << "Operator / : "  << complex6 << endl;
     cout << "Operator ^ : " << complex7 << endl;
+    cout << "Operator = : " << complex8 << endl;
     return 0;
 }
 
@@ -61,6 +64,12 @@ complex complex::operator - (const complex& complex2){
     res.v1 = this->v1 - complex2.v1;
     res.v2 = this->v2 - complex2.v2;
     return res;
+}
+
+const complex& complex::operator = (const complex& complex1){
+    this->v1 = complex1.v1;
+    this->v2 = complex1.v2;
+    return *this;
 }
 
 complex operator * (const complex& complex1, const complex& complex2)
